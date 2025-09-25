@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naufal Alifian Resnanda | IT Support & Network Security Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        /* CSS untuk Styling Profesional */
+        :root {
+            --primary-color: #0d2c54; /* Biru Tua Navy */
+            --secondary-color: #f1f5f9; /* Abu-abu Sangat Terang */
+            --accent-color: #15aabf; /* Teal / Hijau Toska */
+            --dark-color: #1e293b;   /* Abu-abu Tua */
+            --light-color: #ffffff;
+            --text-color: #334155;
+            --font-family: 'Inter', sans-serif;
+            --transition-speed: 0.3s;
+        }
+        
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header / Navigasi --- */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
+            transition: box-shadow var(--transition-speed);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        header nav ul li { margin-left: 25px; }
+        header nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        header nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width var(--transition-speed);
+        }
+        header nav ul li a:hover::after,
+        header nav ul li a.active::after {
+            width: 100%;
+        }
+
+        /* --- Sections --- */
+        .section {
+            padding: 100px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+        
+        /* --- Home Section --- */
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+            background-color: var(--secondary-color);
+            border-bottom: none;
+        }
+        #home .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--light-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        #home h2 {
+            font-size: 3.5rem;
+            margin: 25px 0 15px;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+        #home .lead {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        #home .description {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--accent-color);
+            color: var(--light-color);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all var(--transition-speed);
+            margin: 5px;
+            border: 2px solid var(--accent-color);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(21, 170, 191, 0.2);
+        }
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--light-color);
+            box-shadow: 0 8px 15px rgba(13, 44, 84, 0.2);
+        }
+
+        /* --- About Section --- */
+        #about p {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* --- Portfolio & Skills & Certifications --- */
+        #portfolio, #certifications { background-color: var(--secondary-color); }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: var(--light-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all var(--transition-speed);
+            border: 1px solid #e2e8f0;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+        .card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        .card .tech-tag {
+            display: inline-block;
+            background: #e0f7fa;
+            color: #0b7285;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin: 5px 5px 15px 0;
+        }
+        .card p.subtitle {
+            font-weight: bold;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        .skills-grid ul {
+            list-style: none;
+            padding: 0;
+        }
+        .skills-grid li {
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+        }
+        .skills-grid li i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-right: 12px;
+        }
+        .cert-item {
+            display: flex;
+            align-items: center;
+        }
+        .cert-item i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-right: 20px;
+        }
+
+        /* --- Contact Section --- */
+        #contact .contact-info {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        #contact .contact-info p {
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+        #contact .social-links a {
+            color: var(--dark-color);
+            font-size: 2.5rem;
+            margin: 0 15px;
+            transition: color var(--transition-speed);
+        }
+        #contact .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 25px 0;
+        }
+    </style>
+</head>
+<body>
+<br>
+<br>
+<br>
+
+    <header>
+        <div class="container">
+            <h1>Naufal Alifian Resnanda</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#portfolio">Portofolio</a></li>
+                    <li><a href="#skills">Keahlian</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container">
+                <img src="foto.jpg/NAUFAL ALIFIAN RESNANDA.jpg" alt="Foto Profil Naufal Alifian Resnanda" class="profile-img">
+                <h2>Naufal Alifian Resnanda</h2>
+                <p class="lead">IT Support Technician | Network & Security Enthusiast</p>
+                <p class="description">
+                    Lulusan Teknik Informatika   dengan spesialisasi Administrasi Jaringan dan Keamanan Komputer . Siap memecahkan masalah infrastruktur IT dan menjaga sistem tetap aman dan andal.
+                </p>
+                <div>
+                    <a href="#portfolio" class="btn">Lihat Portofolio</a>
+                    <a href="cv/CV ATS Naufal Alifian Resnanda.pdf" class="btn btn-secondary" target="_blank">Unduh CV</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Tentang Saya</h2>
+                <p>
+                    Halo! Saya Naufal, lulusan Teknik Informatika dari Institut Teknologi dan Bisnis Asia Malang dengan IPK 3.51  . Fokus utama saya adalah administrasi jaringan dan keamanan siber, sebuah minat yang tumbuh sejak SMK . Pengalaman magang sebagai IT Support telah mengasah kemampuan *troubleshooting* hardware dan software saya .
+                    <br><br>
+                    Proyek tugas akhir saya mengenai implementasi sistem monitoring server (Grafana & Prometheus)   dengan integrasi Fail2Ban   menunjukkan dedikasi saya dalam menciptakan infrastruktur IT yang aman. Di luar teknologi, disiplin dan ketekunan yang saya pelajari sebagai atlet Pencak Silat   selalu saya terapkan dalam setiap tantangan profesional.
+                </p>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section">
+            <div class="container">
+                <h2 class="section-title">Portofolio & Pengalaman</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Sistem Monitoring Keamanan Server</h3>
+                        <p class="subtitle">Proyek Tugas Akhir</p>
+                        <div class="tech-tag">Grafana</div><div class="tech-tag">Prometheus</div><div class="tech-tag">Fail2Ban</div><div class="tech-tag">Linux</div><div class="tech-tag">Telegram Bot</div>
+                        <p>Merancang dan mengimplementasikan sistem monitoring proaktif untuk mendeteksi dan mencegah serangan brute force  , lengkap dengan notifikasi real-time via Telegram .</p>
+                    </div>
+                    <div class="card">
+                        <h3>IT Support Internship</h3>
+                        <p class="subtitle">Sahabat Computer (Nov - Des 2019)  </p>
+                        <p>Bertanggung jawab melakukan perbaikan dan troubleshooting perangkat keras (printer)   dan perangkat lunak, serta melakukan instalasi ulang sistem operasi Windows dan aplikasi pendukung untuk klien.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Digital Marketing Internship</h3>
+                        <p class="subtitle">PT. Imersa (Apr - Jul 2024)  </p>
+                        <p>Mendukung tim dalam optimasi konten website dengan menempelkan kata kunci pada template   dan berkontribusi dalam pengembangan website berbasis affiliate marketing .</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Keahlian Teknis</h2>
+                <div class="grid skills-grid">
+                    <div>
+                        <h3>Jaringan & Keamanan</h3>
+                        <ul>
+                            <li><i class='bx bx-network-chart'></i>Konfigurasi & Troubleshooting Jaringan (LAN, WLAN, TCP/IP)  </li>
+                            <li><i class='bx bx-shield-quarter'></i>Administrasi Keamanan Server (Fail2Ban)  </li>
+                            <li><i class='bx bx-wifi'></i>Manajemen & Perawatan WiFi  </li>
+                            <li><i class='bx bxs-lock-alt'></i>Dasar Keamanan Siber (Google Certified)  </li>
+                            <li><i class='bx bxs-server'></i>FortiGate Firewall Operator (FCA Certified)  </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Sistem & Perangkat Keras</h3>
+                        <ul>
+                            <li><i class='bx bx-printer'></i>Troubleshooting Hardware (PC, Laptop, Printer)  </li>
+                            <li><i class='bx bxl-windows'></i>Instalasi Sistem Operasi Windows & Linux  21, </li>
+                            <li><i class='bx bx-desktop'></i>Virtualisasi (VirtualBox)  </li>
+                            <li><i class='bx bxs-data'></i>System Administration & IT Infrastructure  </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Monitoring & Tools</h3>
+                        <ul>
+                            <li><i class='bx bxs-bar-chart-alt-2'></i>Sistem Monitoring (Grafana, Prometheus)  </li>
+                            <li><i class='bx bxl-postgresql'></i>Dasar SQL & Linux Command Line  </li>
+                            <li><i class='bx bxl-html5'></i>HTML & CSS  </li>
+                            <li><i class='bx bxs-file-doc'></i>Digital Printing & Manajemen Dokumen  </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="certifications" class="section">
+            <div class="container">
+                <h2 class="section-title">Sertifikasi & Pelatihan</h2>
+                <div class="grid">
+                    <div class="card cert-item">
+                        <i class='bx bxs-certification'></i>
+                        <div>
+                            <h4>FCA - FortiGate 7.6 Operator  </h4>
+                            <p>Fortinet Training Institute - Juli 2025 </p>
+                        </div>
+                    </div>
+                    <div class="card cert-item">
+                        <i class='bx bxs-certification'></i>
+                        <div>
+                            <h4>HTML and CSS  </h4>
+                            <p>IT Specialist - Mei 2025  </p>
+                        </div>
+                    </div>
+                    <div class="card cert-item">
+                        <i class='bx bxs-certification'></i>
+                        <div>
+                            <h4>Google Cybersecurity Professional Certificate </h4>
+                            <p>Google (Coursera) - November 2023  </p>
+                        </div>
+                    </div>
+                    <div class="card cert-item">
+                        <i class='bx bxs-certification'></i>
+                        <div>
+                            <h4>Jaringan Komputer & MikroTik Dasar  </h4>
+                            <p>IDN Networkers - September 2023  </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container contact-info">
+                <h2 class="section-title">Mari Terhubung</h2>
+                <p>Saya terbuka untuk diskusi mengenai peluang kerja atau proyek kolaborasi. Jangan ragu untuk menghubungi saya.</p>
+                <p><strong><i class='bx bxs-envelope'></i> alifianresnanda@gmail.com</strong>  </p>
+                <p><strong><i class='bx bxs-phone'></i> 085-806-412-123</strong>  </p>
+                <div class="social-links">
+                    <a href="#" target="_blank" title="LinkedIn"><i class='bx bxl-linkedin-square'></i></a>
+                    <a href="#" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Naufal Alifian Resnanda. Dirancang dengan profesional.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // JavaScript untuk menyorot navigasi aktif saat scroll
+        const sections = document.querySelectorAll('section');
+        const navLi = document.querySelectorAll('header nav ul li a');
+
+        window.addEventListener('scroll', ()=> {
+            let current = '';
+            sections.forEach( section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(pageYOffset >= (sectionTop - sectionHeight / 3)){
+                    current = section.getAttribute('id');
+                }
+            })
+            
+            navLi.forEach( a => {
+                a.classList.remove('active');
+                if(a.getAttribute('href').includes(current)){
+                    a.classList.add('active');
+                }
+            })
+        });
+    </script>
+</body>
+</html>
